@@ -8,7 +8,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import CategoryItem from '../../components/CategoryItem';
+import CategoryItem from '../../components/category/CategoryItem';
 import SearchBar from '../../components/SearchBar';
 import { getCategoriesApi } from '../../api/categoryApi';
 import Loader from '../../components/ui/Loader';

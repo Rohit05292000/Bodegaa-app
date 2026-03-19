@@ -2,7 +2,7 @@ import React , {useState, useEffect, useRef} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import Header from '../../components/Header';
-import CategoryCard from '../../components/CategoryCard';
+import CategoryCard from '../../components/category/CategoryCard';
 import ProductCard from '../../components/ProductCard';
 import Loader from '../../components/ui/Loader';
 import {getBestSellersApi} from '../../api/productApi';

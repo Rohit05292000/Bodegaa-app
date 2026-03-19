@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import ProductImageSlider from '../../components/ProductImageSlider';
-import ProductInfo from '../../components/ProductInfo';
-import ProductAccordion from '../../components/ProductAccordion';
+import ProductImageSlider from '../../components/products/ProductImageSlider';
+import ProductInfo from '../../components/products/ProductInfo';
+import ProductAccordion from '../../components/products/ProductAccordion';
 import RatingSection from '../../components/RatingSection';
 import RelatedProducts from '../../components/RelatedProducts';
 import CustomButton from '../../components/ui/CustomButton';
