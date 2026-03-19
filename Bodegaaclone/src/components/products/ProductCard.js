@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavourite } from '../redux/slices/favouriteSlice';
 import { addToCartAsync } from '../redux/slices/cartSlice';
-
+import Toast from 'react-native-toast-message';
 
 
 export default function ProductCard({ item, onPress }) {
@@ -97,6 +97,10 @@ const isFavorite = favourites.some(
         },
       })
     );
+    Toast.show({
+  type: 'success',
+  text1: `${item.name} added to cart`,
+});
   }}
 >
   <Text style={styles.btnText}>Add to Cart</Text>
