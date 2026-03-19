@@ -1,0 +1,8 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "types": ["jest"]
+  },
+  "include": ["**/*.ts", "**/*.tsx", "src/screens/Auth/LoginScreen.js", "src/components/CountryCodePicker.js", "src/components/CustomInput.js", "src/components/CustomButton.js", "App.js"],
+  "exclude": ["**/node_modules", "**/Pods"]
+}
