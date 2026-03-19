@@ -78,26 +78,25 @@ const cartSlice = createSlice({
     .addCase(addToCartAsync.pending, (state) => {
       state.loading = true;
     })
-    .addCase(addToCartAsync.fulfilled, (state, action) => {
-      state.loading = false;
-    console.log("FULFILLED", action.payload);
+ .addCase(addToCartAsync.fulfilled, (state, action) => {
+  state.loading = false;
 
-      const { productId, quantity, itemData } = action.payload;
-      
+  const { productId, quantity, itemData } = action.payload;
 
-      const existing = state.items.find(
-        (i) => i.id === productId
-      );
+  // ✅ Check if already exists
+  const existing = state.items.find(
+    (i) => i.id === productId
+  );
 
-      if (existing) {
-        existing.qty += quantity;
-      } else {
-        state.items.push({
-          ...itemData,
-          qty: quantity,
-        });
-      }
-    })
+  if (!existing) {
+    // ✅ Only add if NOT present
+    state.items.push({
+      ...itemData,
+      id: productId,
+      qty: quantity,
+    });
+  }
+})
     .addCase(addToCartAsync.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;

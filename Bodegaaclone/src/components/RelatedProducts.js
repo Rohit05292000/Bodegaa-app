@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import ProductCard from './ProductCard';
+import ProductCard from '../components/products/ProductCard';
 import { useNavigation } from '@react-navigation/native';
 
 export default function RelatedProducts({ products = [] }) {

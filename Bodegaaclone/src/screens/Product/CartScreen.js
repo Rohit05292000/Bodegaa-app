@@ -82,7 +82,9 @@ const CartScreen = ({ navigation }) => {
   {/* ✅ MULTIPLE ITEMS */}
   <FlatList
     data={cartItems}
-    keyExtractor={(item) => item.id?.toString()}
+   keyExtractor={(item, index) =>
+  item.id ? item.id.toString() : index.toString()
+}
     renderItem={({ item }) => (
       
       <View style={styles.card}>

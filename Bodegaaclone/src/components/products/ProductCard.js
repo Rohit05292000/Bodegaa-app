@@ -2,24 +2,67 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleFavourite } from '../redux/slices/favouriteSlice';
-import { addToCartAsync } from '../redux/slices/cartSlice';
+import { toggleFavourite } from '../../redux/slices/favouriteSlice';
+import { addToCartAsync } from '../../redux/slices/cartSlice';
 import Toast from 'react-native-toast-message';
 
 
 export default function ProductCard({ item, onPress }) {
-
-
-
   const dispatch = useDispatch();
 
-const favourites = useSelector(
-  (state) => state.favourites?.items || []
-);
+  const cartItems = useSelector(
+    (state) => state.cart.items || []
+  );
 
-const isFavorite = favourites.some(
-  (fav) => fav.id === item.id
-);
+  const favourites = useSelector(
+    (state) => state.favourites?.items || []
+  );
+
+  
+  const productId = item._id || item.id;
+
+  const alreadyInCart = cartItems.some(
+    (i) => i.id === productId
+  );
+
+  const isFavorite = favourites.some(
+    (fav) => fav.id === item.id
+  );
+
+
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+
+    if (alreadyInCart) {
+      Toast.show({
+        type: 'info',
+        text1: 'Item already in cart',
+      });
+      return;
+    }
+
+    dispatch(
+      addToCartAsync({
+        productId,
+        quantity: 1,
+        itemData: {
+          id: productId,
+          name: item.name,
+          price: item.discountPrice || item.price,
+          oldPrice: item.price,
+          image: Array.isArray(item.image)
+            ? item.image[0]
+            : item.image,
+          weight: item.weight,
+        },
+      })
+    );
+
+    Toast.show({
+      type: 'success',
+      text1: `${item.name} added to cart`,
+    });
+  };
 
   return (
     
@@ -80,28 +123,8 @@ const isFavorite = favourites.some(
     <Pressable
      android_ripple={{ color: 'rgba(255,255,255,0.3)' }}
   style={styles.button}
-  onPress={(e) => {
-    e.stopPropagation();
-
-    dispatch(
-      addToCartAsync({
-        productId: item._id,   
-        quantity: 1,
-        itemData: {
-          id: item._id,       
-          name: item.name,
-          price: item.discountPrice || item.price,
-          oldPrice: item.price,
-          image: item.image[0],
-          weight: item.weight,
-        },
-      })
-    );
-    Toast.show({
-  type: 'success',
-  text1: `${item.name} added to cart`,
-});
-  }}
+  onPress={handleAddToCart}
+   
 >
   <Text style={styles.btnText}>Add to Cart</Text>
 </Pressable>
