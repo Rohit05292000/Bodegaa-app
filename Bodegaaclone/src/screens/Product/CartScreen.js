@@ -9,7 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useSelector } from 'react-redux';
 
-import CustomButton from '../../components/CustomButton';
+import CustomButton from '../../components/ui/CustomButton';
 
 import { FlatList } from 'react-native';
 import { useDispatch } from 'react-redux';

@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import CategoryItem from '../../components/CategoryItem';
 import SearchBar from '../../components/SearchBar';
 import { getCategoriesApi } from '../../api/categoryApi';
-import Loader from '../../components/Loader';
+import Loader from '../../components/ui/Loader';
 
 const CategoryScreen = ({ navigation }) => {
 

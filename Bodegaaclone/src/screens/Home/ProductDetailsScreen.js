@@ -5,7 +5,7 @@ import ProductInfo from '../../components/ProductInfo';
 import ProductAccordion from '../../components/ProductAccordion';
 import RatingSection from '../../components/RatingSection';
 import RelatedProducts from '../../components/RelatedProducts';
-import CustomButton from '../../components/CustomButton';
+import CustomButton from '../../components/ui/CustomButton';
 
 export default function ProductDetailsScreen({ route }) {
   const { product } = route.params;

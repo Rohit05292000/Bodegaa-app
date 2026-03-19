@@ -3,6 +3,6 @@
   "compilerOptions": {
     "types": ["jest"]
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/screens/Auth/LoginScreen.js", "src/components/CountryCodePicker.js", "src/components/CustomInput.js", "src/components/CustomButton.js", "App.js"],
+  "include": ["**/*.ts", "**/*.tsx", "src/screens/Auth/LoginScreen.js", "src/components/CountryCodePicker.js", "src/components/ui/CustomInput.js", "src/components/ui/CustomButton.js", "App.js"],
   "exclude": ["**/node_modules", "**/Pods"]
 }

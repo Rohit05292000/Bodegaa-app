@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import { TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CustomButton from '../../components/CustomButton';
-import CustomInput from '../../components/CustomInput';
+import CustomButton from '../../components/ui/CustomButton';
+import CustomInput from '../../components/ui/CustomInput';
 import CountryCodePicker from '../../components/CountryCodePicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendOtp, resetOtpState } from '../../redux/slices/authSlice';
